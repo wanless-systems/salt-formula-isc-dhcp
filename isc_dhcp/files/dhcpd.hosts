@@ -9,6 +9,9 @@ host {{ host_name }} {
   {%- if host.hostname is defined %}
   ddns-hostname "{{ host.hostname }}";
   {%- endif %}
+  {%- if host.bootfile_name is defined %}
+  option bootfile-name "{{ host.bootfile_name }}";
+  {%- endif %}
 }
 
 {%- endfor %}
